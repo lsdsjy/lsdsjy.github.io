@@ -15,7 +15,7 @@
 <meta property="og:description" content="我在中学阶段曾两度写文章（也许用 post 更为合适）阐述“博客的意义”，却没想到会在大学时被自己遗忘殆尽。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-01-04T11:09:18.000Z">
-<meta property="article:modified_time" content="2020-10-24T11:48:29.608Z">
+<meta property="article:modified_time" content="2020-10-25T13:05:18.505Z">
 <meta property="article:author" content="lsdsjy">
 <meta name="twitter:card" content="summary">
   
@@ -30,6 +30,8 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
@@ -101,7 +103,10 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://lsdsjy.github.io/restart/" data-id="ckgnmdyjk0001ilhpcwhi0jzm" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://lsdsjy.github.io/restart/" data-id="ckgp4kh8v000177hi3ul0ermc" class="article-share-link">Share</a>-->
+      
+        <div id="gitalk-container"></div>
+        <!-- <a href="https://lsdsjy.github.io/restart/#disqus_thread" class="article-comment-link">留言</a> -->
       
       
     </footer>
@@ -178,6 +183,20 @@
     </div>
   </div>
 </footer>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '07a26b0254dc16f99e22',
+  clientSecret: '56213940a086e407400372f95ca7aeee24c8a630',
+  repo: 'lsdsjy.github.io',
+  owner: 'lsdsjy',
+  admin: ['lsdsjy'],
+  language: 'zh-CN'
+})
+
+gitalk.render('gitalk-container')
+</script>
+
     </div>
     <nav id="mobile-nav">
   

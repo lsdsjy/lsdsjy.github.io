@@ -26,6 +26,8 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
@@ -95,7 +97,10 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://lsdsjy.github.io/node/" data-id="ckgnmdyjg0000ilhpf7hz2emr" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://lsdsjy.github.io/node/" data-id="ckgp4kh8q000077hif2do777i" class="article-share-link">Share</a>-->
+      
+        <div id="gitalk-container"></div>
+        <!-- <a href="https://lsdsjy.github.io/node/#disqus_thread" class="article-comment-link">留言</a> -->
       
       
     </footer>
@@ -136,7 +141,10 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://lsdsjy.github.io/restart/" data-id="ckgnmdyjk0001ilhpcwhi0jzm" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://lsdsjy.github.io/restart/" data-id="ckgp4kh8v000177hi3ul0ermc" class="article-share-link">Share</a>-->
+      
+        <div id="gitalk-container"></div>
+        <!-- <a href="https://lsdsjy.github.io/restart/#disqus_thread" class="article-comment-link">留言</a> -->
       
       
     </footer>
@@ -201,6 +209,20 @@
     </div>
   </div>
 </footer>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '07a26b0254dc16f99e22',
+  clientSecret: '56213940a086e407400372f95ca7aeee24c8a630',
+  repo: 'lsdsjy.github.io',
+  owner: 'lsdsjy',
+  admin: ['lsdsjy'],
+  language: 'zh-CN'
+})
+
+gitalk.render('gitalk-container')
+</script>
+
     </div>
     <nav id="mobile-nav">
   

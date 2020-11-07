@@ -7,21 +7,21 @@
   
   <title>个人任务管理工作流探索 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近一直在用 Microsoft To Do 记录自己要做的事，但是用多了之后越发觉得不爽，于是有了这篇文章。 现状目前我每天用 To Do 和公司内部 Jira 管理自己要做的事。 Microsoft To Do（微软待办）是一个典型的 Todo 列表软件：有一个完整的任务池可以随时添加任务，有多个任务列表，任务可以拆分为子任务&#x2F;步骤（但不能进一步拆分），任务有完成状态、标签、星标、详情、截止时">
+  <meta name="description" content="最近一直在用 Microsoft To Do 记录自己要做的事，但是用多了之后越发觉得不爽，于是有了这篇文章。 现状目前我每天用 To Do 和公司内部 Jira 管理自己要做的事。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="个人任务管理工作流探索">
 <meta property="og:url" content="https://lsdsjy.github.io/task-management/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="最近一直在用 Microsoft To Do 记录自己要做的事，但是用多了之后越发觉得不爽，于是有了这篇文章。 现状目前我每天用 To Do 和公司内部 Jira 管理自己要做的事。 Microsoft To Do（微软待办）是一个典型的 Todo 列表软件：有一个完整的任务池可以随时添加任务，有多个任务列表，任务可以拆分为子任务&#x2F;步骤（但不能进一步拆分），任务有完成状态、标签、星标、详情、截止时">
+<meta property="og:description" content="最近一直在用 Microsoft To Do 记录自己要做的事，但是用多了之后越发觉得不爽，于是有了这篇文章。 现状目前我每天用 To Do 和公司内部 Jira 管理自己要做的事。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="c:/Users/lsdsjy/AppData/Roaming/Typora/typora-user-images/image-20201107221749925.png">
-<meta property="og:image" content="c:/Users/lsdsjy/AppData/Roaming/Typora/typora-user-images/image-20201107231516338.png">
-<meta property="og:image" content="c:/Users/lsdsjy/AppData/Roaming/Typora/typora-user-images/image-20201107233851587.png">
+<meta property="og:image" content="https://lsdsjy.github.io/images/task-management/today.png">
+<meta property="og:image" content="https://lsdsjy.github.io/images/task-management/expectation.png">
+<meta property="og:image" content="https://lsdsjy.github.io/images/theme-management/columns.png">
 <meta property="article:published_time" content="2020-11-07T15:50:00.000Z">
-<meta property="article:modified_time" content="2020-11-07T15:53:13.872Z">
+<meta property="article:modified_time" content="2020-11-07T16:01:08.325Z">
 <meta property="article:author" content="lsdsjy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/lsdsjy/AppData/Roaming/Typora/typora-user-images/image-20201107221749925.png">
+<meta name="twitter:image" content="https://lsdsjy.github.io/images/task-management/today.png">
   
     <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
   
@@ -96,6 +96,8 @@
       
         <p>最近一直在用 Microsoft To Do 记录自己要做的事，但是用多了之后越发觉得不爽，于是有了这篇文章。</p>
 <h2 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h2><p>目前我每天用 To Do 和公司内部 Jira 管理自己要做的事。</p>
+<a id="more"></a>
+
 <p>Microsoft To Do（微软待办）是一个典型的 Todo 列表软件：有一个完整的任务池可以随时添加任务，有多个任务列表，任务可以拆分为子任务/步骤（但不能进一步拆分），任务有完成状态、标签、星标、详情、截止时间、附件等常规属性。</p>
 <p>比较创新的是 My Day / 我的一天功能：App 每天会从任务池中推荐一些用户可能想要完成的任务，用户可以选择添加进 My Day 中；每天开始时 My Day 列表都会被清空，没完成的任务回到任务池中，需要用户再次选择性地添加。推荐的任务一般是上一天的 My Day 列表中没完成的任务和最近添加到任务池中的任务。这样每天构建当日列表时既可以回顾上一天的完成情况，也可以规划今天要做的事。其他常见的 Todo 软件如滴答清单、Doit.im、Any.do 等都和微软待办大同小异。</p>
 <p>Jira 已经是许多互联网公司的标配了，其主要的组成部分 Scrum 和 Kanban Board 都有对应的理论和实践体系，不再赘述。相比于 Todo 类软件，Jira 主要用于项目管理、产品开发、问题追踪，使用者往往是多人团队，有 Owner 进行任务分配、追踪和回顾。按照公司的组织架构对总体目标进行逐层拆解和细化，自然地分配到每一个人。 </p>
@@ -109,7 +111,7 @@
 </li>
 <li><p>没有长期关注的任务</p>
 <p>微软待办产品设计上强调今日而淡化长期目标。我理解设计者期望用户把目标拆分到任务的粒度再用 Todo 列表管理，但这也带来了额外的成本，比如需要把目标列在别的 list 甚至别的 app，每次规划 My Day 列表时手动从目标派生出任务。</p>
-<p><img src="C:\Users\lsdsjy\AppData\Roaming\Typora\typora-user-images\image-20201107221749925.png" alt="image-20201107221749925"></p>
+<p><img src="/images/task-management/today.png" alt="Focus on Today"></p>
 </li>
 <li><p>Important 列表非常鸡肋</p>
 <p>在产品设计聚焦于 My Day 列表后，用户大多数操作都只与 My Day 列表有关：每天早上从建议的任务中挑选任务构建列表，中途与 My Day 列表中的任务交互，晚上适当回顾。这导致 Important 列表虽然与 My Day 并列且交互便捷（任何任务都可以通过点击星标添加到 Important），但无法被用户关注。</p>
@@ -129,7 +131,7 @@
 </li>
 <li><p>期望、目标</p>
 <p>比计划更宽泛，一般是简单的短语，如“坚持健身”、“提升自己的技术”、“保持乐观”等，性质类似座右铭、格言等，需要时刻记着，常常想起，所以它反而比计划更需要被频繁看见。</p>
-<p><img src="C:\Users\lsdsjy\AppData\Roaming\Typora\typora-user-images\image-20201107231516338.png" alt="image-20201107231516338"></p>
+<p><img src="/images/task-management/expectation.png" alt="期望"></p>
 </li>
 <li><p>想法</p>
 <p>一些灵光一现但不成熟的点子，后面也许可以投入精力，但暂时只记下来。这些想法不需要作为“任务”被“管理“，可以记在 OneNote 之类的笔记软件里，和其他笔记一样定期整理。</p>
@@ -141,7 +143,7 @@
 <p>计划单独一栏，也可以把所有计划进一步按时间维度细分为周、月、季度和年度计划，但这样可能会挤占界面空间，毕竟我们希望确保近期计划和期望都能被显眼地看见。</p>
 <p>期望和计划类似，单独一栏，时刻关注，甚至可以放在今日任务的左边一栏。</p>
 <p>所以我们的界面应该长这个样子：</p>
-<p><img src="C:\Users\lsdsjy\AppData\Roaming\Typora\typora-user-images\image-20201107233851587.png" alt="image-20201107233851587"></p>
+<p><img src="/images/theme-management/columns.png" alt="分栏界面"></p>
 <p>这里是以 Teambition 作为工具，但其实任意一个支持多栏布局和拖拽项目的 App 都适用，比如 Trello、Worktile 等。</p>
 <p>如前所述，今日任务需要每天反复检查，每天把任务池中的部分任务拖入今日任务中。</p>
 <p>对于计划和期望两栏，需要有一定的机制保证执行。对于计划，需要定期派生出任务并放入任务池或今日任务；对于期望，可以直接拖入今日任务栏，完成一定的量（锻炼半小时）后拖回期望一栏，从而可以长期关注并执行。</p>
@@ -150,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://lsdsjy.github.io/task-management/" data-id="ckh7vag1300022dn4c7vh3uk7" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://lsdsjy.github.io/task-management/" data-id="ckh7vkkb7000240orhxryfw01" class="article-share-link">Share</a>-->
       
         <div id="gitalk-container"></div>
         <!-- <a href="https://lsdsjy.github.io/task-management/#disqus_thread" class="article-comment-link">留言</a> -->

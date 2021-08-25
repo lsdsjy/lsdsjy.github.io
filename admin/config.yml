@@ -2,7 +2,7 @@ backend:
   name: github
   repo: lsdsjy/lsdsjy.github.io
   branch: source
-  site_domain: loving-keller-456477.netlify.app
+  site_domain: lsdsjy.github.io
 
 media_folder: "source/images/uploads"
 public_folder: "/images/uploads"

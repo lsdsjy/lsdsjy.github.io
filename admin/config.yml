@@ -4,6 +4,8 @@ backend:
   branch: source
   site_domain: lsdsjy.github.io
 
+publish_mode: editorial_workflow
+
 media_folder: "source/images/uploads"
 public_folder: "/images/uploads"
 

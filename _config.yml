@@ -100,6 +100,9 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: landscape
 
+theme_config:
+  cusdis_app_id: 9ada4764-e2de-479b-9328-abca94434933
+
 feed:
   enable: true
   type: atom

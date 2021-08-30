@@ -25,7 +25,16 @@
     <footer class="article-footer">
       <!--<a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('share') %></a>-->
       <% if (!index && post.comments) { %>
-        <div id="gitalk-container"></div>
+        <h2 style="font-size: 1.5rem">评论区</h2>
+        <div
+          id="cusdis_thread"
+          style="margin-top: 2em;"
+          data-host="https://cusdis.com"
+          data-app-id="<%- theme.cusdis_app_id %>"
+          data-page-id="<%- page.path %>"
+          data-page-url="<%- page.permalink %>"
+          data-page-title="<%- page.title %>"
+        ></div>
         <!-- <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comment') %></a> -->
       <% } %>
       <%- partial('post/tag') %>

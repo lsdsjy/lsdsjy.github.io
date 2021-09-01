@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+env:
+  NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+  BLOG_INDEX_ID: ${{ secrets.BLOG_INDEX_ID }}
+
 jobs:
   pages:
     runs-on: ubuntu-latest

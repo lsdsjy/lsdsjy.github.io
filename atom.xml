@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>lsdsjy&#39;s blog</title>
+  
+  
+  <link href="https://lsdsjy.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://lsdsjy.github.io/"/>
+  <updated>2021-09-01T15:10:06.225Z</updated>
+  <id>https://lsdsjy.github.io/</id>
+  
+  <author>
+    <name>lsdsjy</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客系统十年变迁</title>
+    <link href="https://lsdsjy.github.io/blogging-platforms/"/>
+    <id>https://lsdsjy.github.io/blogging-platforms/</id>
+    <published>2021-08-28T15:22:11.000Z</published>
+    <updated>2021-09-01T15:10:06.225Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;算起来接触独立博客已经有十年了，这十年来虽然产出不算频繁，但是一直都在关注博客圈子。之前简单回忆过&lt;a href=&quot;https://lsdsjy.github.io/restart/&quot;&gt;自己写博客的经历&lt;/a&gt;，这次想从技术角度分析一下这十年博客系统的发展和背后的逻辑。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>简单回顾一次技术分享</title>
+    <link href="https://lsdsjy.github.io/tech-talk-review/"/>
+    <id>https://lsdsjy.github.io/tech-talk-review/</id>
+    <published>2020-11-09T15:22:11.000Z</published>
+    <updated>2021-09-01T15:10:06.225Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;前两周在公司内部做了一次线上的技术分享，分享前做了很多准备工作，包括花了近两个工作日的时间收集资料和制作 Keynote，以及在组内试讲、收集反馈。虽然最后的效果还是不尽如人意，但也还能接受。后来回顾了一下当时的录屏，结合组内同学的反馈以及自己的体验，总结一下这次技术分享中的不足。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>个人任务管理工作流探索</title>
+    <link href="https://lsdsjy.github.io/task-management/"/>
+    <id>https://lsdsjy.github.io/task-management/</id>
+    <published>2020-11-07T15:50:00.000Z</published>
+    <updated>2021-09-01T15:10:06.225Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近一直在用 Microsoft To Do 记录自己要做的事，但是用多了之后越发觉得不爽，于是有了这篇文章。&lt;/p&gt;
+&lt;h2 id=&quot;现状&quot;&gt;&lt;a href=&quot;#现状&quot; class=&quot;headerlink&quot; title=&quot;现状&quot;&gt;&lt;/a&gt;现状&lt;/h2&gt;&lt;p&gt;目前我每天用 To Do 和公司内部 Jira 管理自己要做的事。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>写在人生的一个小小节点</title>
+    <link href="https://lsdsjy.github.io/node/"/>
+    <id>https://lsdsjy.github.io/node/</id>
+    <published>2020-10-24T11:09:18.000Z</published>
+    <updated>2021-09-01T15:10:06.225Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;大约是四年前，我写了一篇文章，叫做&lt;a href=&quot;https://www.jianshu.com/p/f4df282e945d&quot;&gt;《大学的十六分之一》&lt;/a&gt;。当时的我第一次离开家乡那座小城，独自来到北京读书；高中时对大学的憧憬和计划一点点地变得模糊，日常生活被懒惰和消极侵占，但又仍然保持一点清醒，所以才能写下那些文字。可惜的是后来再也没有类似的场景。前些日子从学校毕业的时候，看到别人的大学四年总结，我却想不到能写些什么。我不是一个好学生，也没做些有趣的事，甚至没能成为一个合格的人。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>重新开始记录</title>
+    <link href="https://lsdsjy.github.io/restart/"/>
+    <id>https://lsdsjy.github.io/restart/</id>
+    <published>2019-01-04T11:09:18.000Z</published>
+    <updated>2021-09-01T15:10:06.225Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;我在中学阶段曾两度写文章（也许用 post 更为合适）阐述“博客的意义”，却没想到会在大学时被自己遗忘殆尽。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+</feed>

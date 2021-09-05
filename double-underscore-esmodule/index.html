@@ -6,17 +6,17 @@
   
 
   
-  <title>lsdsjy&#39;s blog</title>
+  <title>为什么我们需要 __esModule | lsdsjy&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="ES Modules（ESM）是 ES2015 规范中定义的 JavaScript 模块格式，而早在此之前社区就已经探索出了诸如 CommonJS 和 AMD 之类的模块格式，其中影响力最大的就是被 Node.js 采用的 CommonJS。在 ESM 规范出现之前，JS 社区里的三方包几乎全部采用 CJS 模块格式编写，所以当 ESM 出现时，社区必须考虑的一个问题就是 ES Modules 如">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lsdsjy&#39;s blog">
+<meta property="og:title" content="为什么我们需要 __esModule">
 <meta property="og:url" content="https://lsdsjy.github.io/double-underscore-esmodule/index.html">
 <meta property="og:site_name" content="lsdsjy&#39;s blog">
 <meta property="og:description" content="ES Modules（ESM）是 ES2015 规范中定义的 JavaScript 模块格式，而早在此之前社区就已经探索出了诸如 CommonJS 和 AMD 之类的模块格式，其中影响力最大的就是被 Node.js 采用的 CommonJS。在 ESM 规范出现之前，JS 社区里的三方包几乎全部采用 CJS 模块格式编写，所以当 ESM 出现时，社区必须考虑的一个问题就是 ES Modules 如">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-05T15:49:02.146Z">
-<meta property="article:modified_time" content="2021-09-05T15:49:02.146Z">
+<meta property="article:published_time" content="2021-09-05T15:22:11.000Z">
+<meta property="article:modified_time" content="2021-09-05T15:53:16.348Z">
 <meta property="article:author" content="lsdsjy">
 <meta name="twitter:card" content="summary">
   
@@ -73,16 +73,28 @@
         <section id="main"><article id="post-double-underscore-esmodule" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/double-underscore-esmodule/" class="article-date">
-  <time datetime="2021-09-05T15:49:02.146Z" itemprop="datePublished">2021-09-05</time>
+  <time datetime="2021-09-05T15:22:11.000Z" itemprop="datePublished">2021-09-05</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      为什么我们需要 __esModule
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <p>ES Modules（ESM）是 ES2015 规范中定义的 JavaScript 模块格式，而早在此之前社区就已经探索出了诸如 CommonJS 和 AMD 之类的模块格式，其中影响力最大的就是被 Node.js 采用的 CommonJS。在 ESM 规范出现之前，JS 社区里的三方包几乎全部采用 CJS 模块格式编写，所以当 ESM 出现时，社区必须考虑的一个问题就是 ES Modules 如何与 CommonJS Modules 互操作（interoperate）。</p>
+<a id="more"></a>
+
 <h2 id="ESM-如何使用-CJS-模块"><a href="#ESM-如何使用-CJS-模块" class="headerlink" title="ESM 如何使用 CJS 模块"></a>ESM 如何使用 CJS 模块</h2><p>一个比较直觉的想法是把 CJS 中的 <code>const a = require(&#39;a&#39;)</code> 和 ESM 的 namespace import 即 <code>import * as a from &#39;a&#39;</code> 对应起来，因为这两者表达的语义都是“引用某模块导出的所有东西”。</p>
 <p>但是我们知道 CommonJS 中模块导出的可以是任意数据，包括对象、函数和原生类型（数字、字符串等），而 ESM 的 namespace import 得到的 namespace object 只能是一个普通的对象，这就造成了失配，比如对于 jquery 库：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> $ = <span class="built_in">require</span>(<span class="string">&#x27;jquery&#x27;</span>)</span><br><span class="line">$(<span class="string">&#x27;body&#x27;</span>) <span class="comment">// OK</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> $ <span class="keyword">from</span> <span class="string">&#x27;jquery&#x27;</span></span><br><span class="line">$(<span class="string">&#x27;body&#x27;</span>) <span class="comment">// Error, $ is not a function</span></span><br></pre></td></tr></table></figure>
@@ -133,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="https://lsdsjy.github.io/double-underscore-esmodule/" data-id="ckt7e5nbq00019qnld83548sm" class="article-share-link">Share</a>-->
+      <!--<a data-url="https://lsdsjy.github.io/double-underscore-esmodule/" data-id="ckt7eaxjr0001beof9id42dde" class="article-share-link">Share</a>-->
       
         <h2 style="font-size: 1.5rem">评论区</h2>
         <div
@@ -143,7 +155,7 @@
           data-app-id="9ada4764-e2de-479b-9328-abca94434933"
           data-page-id="double-underscore-esmodule/"
           data-page-url="https://lsdsjy.github.io/double-underscore-esmodule/"
-          data-page-title=""
+          data-page-title="为什么我们需要 __esModule"
         ></div>
         <!-- <a href="https://lsdsjy.github.io/double-underscore-esmodule/#disqus_thread" class="article-comment-link">留言</a> -->
       
@@ -194,7 +206,7 @@
       <ul>
         
           <li>
-            <a href="/double-underscore-esmodule/">(no title)</a>
+            <a href="/double-underscore-esmodule/">为什么我们需要 __esModule</a>
           </li>
         
           <li>

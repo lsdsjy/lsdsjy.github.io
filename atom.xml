@@ -6,7 +6,7 @@
   <link href="https://lsdsjy.github.io/atom.xml" rel="self"/>
   
   <link href="https://lsdsjy.github.io/"/>
-  <updated>2021-09-05T15:49:02.146Z</updated>
+  <updated>2021-09-05T15:53:16.348Z</updated>
   <id>https://lsdsjy.github.io/</id>
   
   <author>
@@ -17,20 +17,14 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>为什么我们需要 __esModule</title>
     <link href="https://lsdsjy.github.io/double-underscore-esmodule/"/>
     <id>https://lsdsjy.github.io/double-underscore-esmodule/</id>
-    <published>2021-09-05T15:49:02.146Z</published>
-    <updated>2021-09-05T15:49:02.146Z</updated>
+    <published>2021-09-05T15:22:11.000Z</published>
+    <updated>2021-09-05T15:53:16.348Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;ES Modules（ESM）是 ES2015 规范中定义的 JavaScript 模块格式，而早在此之前社区就已经探索出了诸如 CommonJS 和 AMD 之类的模块格式，其中影响力最大的就是被 Node.js 采用的 CommonJS。在 ESM 规范出现之前，JS</summary>
-        
-      
+    <summary type="html">&lt;p&gt;ES Modules（ESM）是 ES2015 规范中定义的 JavaScript 模块格式，而早在此之前社区就已经探索出了诸如 CommonJS 和 AMD 之类的模块格式，其中影响力最大的就是被 Node.js 采用的 CommonJS。在 ESM 规范出现之前，JS 社区里的三方包几乎全部采用 CJS 模块格式编写，所以当 ESM 出现时，社区必须考虑的一个问题就是 ES Modules 如何与 CommonJS Modules 互操作（interoperate）。&lt;/p&gt;</summary>
     
     
     
@@ -42,7 +36,7 @@
     <link href="https://lsdsjy.github.io/blogging-platforms/"/>
     <id>https://lsdsjy.github.io/blogging-platforms/</id>
     <published>2021-08-28T15:22:11.000Z</published>
-    <updated>2021-09-05T15:49:02.146Z</updated>
+    <updated>2021-09-05T15:53:16.348Z</updated>
     
     
     <summary type="html">&lt;p&gt;算起来接触独立博客已经有十年了，这十年来虽然产出不算频繁，但是一直都在关注博客圈子。之前简单回忆过&lt;a href=&quot;https://lsdsjy.github.io/restart/&quot;&gt;自己写博客的经历&lt;/a&gt;，这次想从技术角度分析一下这十年博客系统的发展和背后的逻辑。&lt;/p&gt;</summary>
@@ -57,7 +51,7 @@
     <link href="https://lsdsjy.github.io/tech-talk-review/"/>
     <id>https://lsdsjy.github.io/tech-talk-review/</id>
     <published>2020-11-09T15:22:11.000Z</published>
-    <updated>2021-09-05T15:49:02.146Z</updated>
+    <updated>2021-09-05T15:53:16.348Z</updated>
     
     
     <summary type="html">&lt;p&gt;前两周在公司内部做了一次线上的技术分享，分享前做了很多准备工作，包括花了近两个工作日的时间收集资料和制作 Keynote，以及在组内试讲、收集反馈。虽然最后的效果还是不尽如人意，但也还能接受。后来回顾了一下当时的录屏，结合组内同学的反馈以及自己的体验，总结一下这次技术分享中的不足。&lt;/p&gt;</summary>
@@ -72,7 +66,7 @@
     <link href="https://lsdsjy.github.io/task-management/"/>
     <id>https://lsdsjy.github.io/task-management/</id>
     <published>2020-11-07T15:50:00.000Z</published>
-    <updated>2021-09-05T15:49:02.146Z</updated>
+    <updated>2021-09-05T15:53:16.348Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近一直在用 Microsoft To Do 记录自己要做的事，但是用多了之后越发觉得不爽，于是有了这篇文章。&lt;/p&gt;
@@ -88,7 +82,7 @@
     <link href="https://lsdsjy.github.io/node/"/>
     <id>https://lsdsjy.github.io/node/</id>
     <published>2020-10-24T11:09:18.000Z</published>
-    <updated>2021-09-05T15:49:02.146Z</updated>
+    <updated>2021-09-05T15:53:16.348Z</updated>
     
     
     <summary type="html">&lt;p&gt;大约是四年前，我写了一篇文章，叫做&lt;a href=&quot;https://www.jianshu.com/p/f4df282e945d&quot;&gt;《大学的十六分之一》&lt;/a&gt;。当时的我第一次离开家乡那座小城，独自来到北京读书；高中时对大学的憧憬和计划一点点地变得模糊，日常生活被懒惰和消极侵占，但又仍然保持一点清醒，所以才能写下那些文字。可惜的是后来再也没有类似的场景。前些日子从学校毕业的时候，看到别人的大学四年总结，我却想不到能写些什么。我不是一个好学生，也没做些有趣的事，甚至没能成为一个合格的人。&lt;/p&gt;</summary>
@@ -103,7 +97,7 @@
     <link href="https://lsdsjy.github.io/restart/"/>
     <id>https://lsdsjy.github.io/restart/</id>
     <published>2019-01-04T11:09:18.000Z</published>
-    <updated>2021-09-05T15:49:02.146Z</updated>
+    <updated>2021-09-05T15:53:16.348Z</updated>
     
     
     <summary type="html">&lt;p&gt;我在中学阶段曾两度写文章（也许用 post 更为合适）阐述“博客的意义”，却没想到会在大学时被自己遗忘殆尽。&lt;/p&gt;</summary>

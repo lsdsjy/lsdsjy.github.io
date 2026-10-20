@@ -14,7 +14,7 @@
 </script>
 <% } %>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@2/dist/jquery.min.js"></script>
+<%- js('js/vendor/jquery') %>
 
 <% if (theme.fancybox){ %>
   <%- css('fancybox/jquery.fancybox') %>
@@ -23,3 +23,5 @@
 
 <%- js('js/script') %>
 <%- partial('gauges-analytics') %>
+
+<%- js({src: 'js/navigation.js', defer: true}) %>

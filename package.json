@@ -4,25 +4,39 @@
   "private": true,
   "scripts": {
     "build": "hexo generate",
-    "postbuild": "node scripts/minify-font.js",
+    "postbuild": "node tools/minify-font.cjs",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "start": "hexo server"
+    "start": "hexo server",
+    "test": "playwright test"
   },
   "hexo": {
-    "version": "5.2.0"
+    "version": "8.1.2"
   },
   "dependencies": {
-    "fontmin": "^0.9.8",
-    "hexo": "^5.0.0",
-    "hexo-generator-archive": "^1.0.0",
-    "hexo-generator-category": "^1.0.0",
-    "hexo-generator-feed": "^3.0.0",
-    "hexo-generator-index": "^2.0.0",
-    "hexo-generator-tag": "^1.0.0",
-    "hexo-renderer-ejs": "^1.0.0",
-    "hexo-renderer-marked": "^3.0.0",
-    "hexo-renderer-stylus": "^2.0.0",
-    "hexo-server": "^2.0.0"
+    "@swup/a11y-plugin": "^5.2.1",
+    "@swup/head-plugin": "^2.3.1",
+    "@swup/preload-plugin": "^3.2.12",
+    "@swup/scroll-plugin": "^4.0.0",
+    "fontmin": "^1.1.1",
+    "hexo": "^8.1.2",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-feed": "^4.0.0",
+    "hexo-generator-index": "^4.0.0",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.1",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-server": "^3.0.0",
+    "jquery": "^3.7.1",
+    "swup": "^4.10.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "esbuild": "^0.28.2"
   }
 }

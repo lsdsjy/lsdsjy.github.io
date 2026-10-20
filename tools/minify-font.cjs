@@ -1,6 +1,5 @@
 const pathlib = require('path')
 const fs = require('fs')
-const _ = require('lodash')
 const Fontmin = require('fontmin')
 
 let content = ''
@@ -22,7 +21,7 @@ function gatherHtml(path, ext) {
 
 gatherHtml('public')
 
-content = _.uniq(Array.from(content)).join('')
+content = [...new Set(content)].join('')
 
 const fontmin = new Fontmin()
   .src('source/*.ttf')
@@ -44,6 +43,5 @@ fontmin.run(function (err, files) {
     throw err
   }
 
-  console.log(files[0])
-  // => { contents: <Buffer 00 01 00 ...> }
+  console.log(`Generated ${files.length} font files`)
 })

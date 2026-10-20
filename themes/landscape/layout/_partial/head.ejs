@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= config.language %>">
 <head>
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="/favicon.png"/>
@@ -34,7 +34,5 @@
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   <% } %>
   <%- css('css/style') %>
-  <% if (is_post()) { %>
-    <script async src="https://cusdis.com/js/cusdis.es.js"></script>
-  <% } %>
+  <link rel="canonical" href="<%= page.permalink || config.url + '/' %>">
 </head>

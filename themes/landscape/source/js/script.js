@@ -85,26 +85,24 @@
     window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
   });
 
-  // Caption
-  $('.article-entry').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-
-      var alt = this.alt;
-
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+  // Re-run only article enhancements after a client-side navigation.
+  window.initArticle = function(){
+    $('#main .article-entry').each(function(i){
+      $(this).find('img').each(function(){
+        if ($(this).parent().is('a')) return;
+        if (this.alt) $('<span class="caption">').text(this.alt).insertAfter(this);
+        $(this).wrap($('<a>', {
+          href: this.src,
+          title: this.alt,
+          class: 'fancybox',
+          'data-no-swup': ''
+        }));
+      });
+      $(this).find('.fancybox').attr('rel', 'article' + i);
     });
-
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-
-  if ($.fancybox){
-    $('.fancybox').fancybox();
-  }
+    if ($.fancybox) $('#main .fancybox').fancybox();
+  };
+  window.initArticle();
 
   // Mobile nav
   var $container = $('#container'),

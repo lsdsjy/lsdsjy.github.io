@@ -69,17 +69,17 @@ test('restores scroll on back and forward, including excerpt anchors', async ({ 
   expect(await page.evaluate(() => window.documentMarker)).toBe('original');
 });
 
-test('initializes images once when revisiting, and handles archive navigation', async ({ page }) => {
+test('initializes images once when revisiting via the site title', async ({ page }) => {
   await openHome(page);
   await page.locator('a.article-title[href="/task-management/"]').click();
   await expect(page.locator('#main .article-entry img').first()).toBeVisible();
   const captions = await page.locator('#main .caption').count();
   const wrappers = await page.locator('#main a.article-image').count();
   expect(wrappers).toBeGreaterThan(0);
-  await page.locator('#main-nav a[href="/archives"]').click();
-  await expect(page).toHaveTitle(/归档/);
-  await expect(page.locator('#main-nav a[href="/archives"]')).toHaveAttribute('aria-current', 'page');
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://lsdsjy.github.io/archives/');
+  await page.locator('#header .brand').click();
+  await expect(page.locator('#main .sectionhead h1')).toHaveText('文章');
+  await expect(page.locator('#main-nav a')).toHaveCount(1);
+  await expect(page.locator('#main-nav a')).toHaveAttribute('href', 'https://github.com/lsdsjy');
   await expect(page.locator('#cusdis_thread')).toHaveCount(0);
   await page.goBack();
   await expect(page.locator('h1.article-title')).toHaveText('个人任务管理工作流探索');
@@ -109,7 +109,7 @@ test('direct URLs retain complete content without JavaScript', async ({ browser 
   await page.goto('http://127.0.0.1:4173/ref-element-vue/');
   await expect(page.locator('.article-title').first()).toHaveText('Ref Element of Component in Vue.js');
   await expect(page.locator('figure.highlight').first()).toBeVisible();
-  await page.locator('#main-nav a[href="/archives"]').click();
+  await page.goto('http://127.0.0.1:4173/archives/');
   await expect(page).toHaveTitle(/归档/);
   await context.close();
 });

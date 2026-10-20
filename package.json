@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "build": "hexo generate",
-    "postbuild": "node tools/minify-font.cjs",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "start": "hexo server",
@@ -18,7 +17,6 @@
     "@swup/head-plugin": "^2.3.1",
     "@swup/preload-plugin": "^3.2.12",
     "@swup/scroll-plugin": "^4.0.0",
-    "fontmin": "^1.1.1",
     "hexo": "^8.1.2",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",

@@ -10,7 +10,8 @@ npm ci
 npm start
 ```
 
-Use Node.js 22. `npm run build` generates `public/` and subsets the Chinese font.
+Use Node.js 22. `npm run build` generates `public/`. The theme uses system fonts, so no font
+files or font conversion tools are needed.
 The browser assets are bundled by a Hexo generator, so both development and
 production builds include them. The Editorial theme uses system serif fonts and no jQuery. It has no external
 runtime dependencies. The previous Landscape theme remains available.

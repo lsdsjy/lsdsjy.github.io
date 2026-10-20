@@ -1,0 +1,18 @@
+<%- partial('_partial/head') %>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<div id="container" class="shell">
+  <header id="header" class="masthead">
+    <a class="brand" href="<%- url_for('/') %>"><%= config.title %></a>
+    <nav id="main-nav" class="nav" aria-label="主导航">
+    <% Object.entries(theme.menu).forEach(([label, href]) => { %>
+      <a href="<%= url_for(href) %>"<% if (/^https?:/.test(href)) { %> target="_blank" rel="noopener noreferrer"<% } %><% if (href === '/' && is_home() || href === '/archives' && is_archive()) { %> aria-current="page"<% } %>><%= label %></a>
+    <% }) %>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1"><%- body %></main>
+  <footer class="foot"><span>© <%= date(Date.now(), 'YYYY') %> <%= config.author %></span><a href="<%= url_for(theme.rss) %>" data-no-swup>RSS</a></footer>
+</div>
+<%- js({src: 'js/navigation.js', defer: true}) %>
+</body>
+</html>

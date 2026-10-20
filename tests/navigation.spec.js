@@ -85,14 +85,16 @@ test('initializes images once when revisiting, and handles archive navigation', 
   await page.locator('a.article-title[href="/task-management/"]').click();
   await expect(page.locator('#main .article-entry img').first()).toBeVisible();
   const captions = await page.locator('#main .caption').count();
-  const wrappers = await page.locator('#main a.fancybox').count();
+  const wrappers = await page.locator('#main a.article-image').count();
   expect(wrappers).toBeGreaterThan(0);
   await page.locator('#main-nav a[href="/archives"]').click();
   await expect(page).toHaveTitle(/归档/);
+  await expect(page.locator('#main-nav a[href="/archives"]')).toHaveAttribute('aria-current', 'page');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://lsdsjy.github.io/archives/');
   await expect(page.locator('#cusdis_thread')).toHaveCount(0);
   await page.goBack();
   await expect(page.locator('#cusdis_thread')).toHaveAttribute('data-page-id', 'task-management/');
-  await expect(page.locator('#main a.fancybox')).toHaveCount(wrappers);
+  await expect(page.locator('#main a.article-image')).toHaveCount(wrappers);
   await expect(page.locator('#main .caption')).toHaveCount(captions);
 });
 

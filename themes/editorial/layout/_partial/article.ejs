@@ -1,0 +1,20 @@
+<div class="articlewrap">
+  <a class="back" href="<%= url_for('/') %>">← 所有文章</a>
+  <article>
+    <header class="articlehead">
+      <h1 class="article-title"><%= page.title %></h1>
+      <div class="meta"><time datetime="<%= date_xml(page.date) %>"><%= date(page.date, 'YYYY 年 M 月 D 日') %></time><span><%= page.author || config.author %></span></div>
+    </header>
+    <div class="article-entry prose"><%- page.content %></div>
+    <% if (page.tags && page.tags.length) { %><div class="tags"><%- list_tags(page.tags, {show_count: false, style: 'none', separator: ' / '}) %></div><% } %>
+  </article>
+  <% if (page.prev || page.next) { %>
+  <nav id="article-nav" class="articleend" aria-label="相邻文章">
+    <div><% if (page.prev) { %><a href="<%= url_for(page.prev.path) %>"><span>← 上一篇</span><%= page.prev.title %></a><% } %></div>
+    <div><% if (page.next) { %><a href="<%= url_for(page.next.path) %>"><span>下一篇 →</span><%= page.next.title %></a><% } %></div>
+  </nav>
+  <% } %>
+  <% if (page.comments && theme.cusdis_app_id) { %>
+  <section class="comments" aria-label="评论"><h2>评论</h2><div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="<%= theme.cusdis_app_id %>" data-page-id="<%= page.path %>" data-page-url="<%= page.permalink %>" data-page-title="<%= page.title %>"></div></section>
+  <% } %>
+</div>

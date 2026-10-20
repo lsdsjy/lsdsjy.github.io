@@ -1,0 +1,12 @@
+<div class="sectionhead"><h1>文章</h1><span><%= site.posts.length %> 篇</span></div>
+<section aria-label="文章列表">
+<% page.posts.each(post => { %>
+  <article class="entry">
+    <time class="date" datetime="<%= date_xml(post.date) %>"><%= date(post.date, 'YYYY.MM.DD') %></time>
+    <div><h2><a class="article-title" href="<%= url_for(post.path) %>"><%= post.title %></a></h2>
+    <p><%= editorial_excerpt(post) %></p></div>
+    <span class="article-more-link"><a class="arrow" href="<%= url_for(post.path) %><%= post.excerpt ? '#more' : '' %>" aria-label="阅读全文：<%= post.title %>">↗</a></span>
+  </article>
+<% }) %>
+</section>
+<%- partial('_partial/pagination') %>

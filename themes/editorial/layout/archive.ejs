@@ -1,0 +1,7 @@
+<% const title = is_category() ? page.category : is_tag() ? page.tag : '归档'; %>
+<div class="sectionhead"><h1><%= title %></h1><% if (page.year) { %><span><%= page.year %><%= page.month ? ' / ' + page.month : '' %></span><% } %></div>
+<% let lastYear; page.posts.each(post => { const year = post.date.year(); %>
+  <% if (lastYear !== year) { lastYear = year; %><h2 class="archive-year"><a href="<%= url_for(config.archive_dir + '/' + year + '/') %>"><%= year %></a></h2><% } %>
+  <article class="archive-row"><time class="date" datetime="<%= date_xml(post.date) %>"><%= date(post.date, 'MM.DD') %></time><a href="<%= url_for(post.path) %>"><%= post.title %></a></article>
+<% }) %>
+<%- partial('_partial/pagination') %>

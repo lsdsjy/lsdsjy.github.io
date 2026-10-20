@@ -12,8 +12,9 @@ hexo.extend.generator.register('browser-assets', async function () {
     target: ['es2020'],
     write: false
   });
-  return [
-    { path: 'js/navigation.js', data: result.outputFiles[0].text },
-    { path: 'js/vendor/jquery.js', data: fs.readFileSync(require.resolve('jquery/dist/jquery.min.js')) }
-  ];
+  const assets = [{ path: 'js/navigation.js', data: result.outputFiles[0].text }];
+  if (hexo.config.theme === 'landscape') {
+    assets.push({ path: 'js/vendor/jquery.js', data: fs.readFileSync(require.resolve('jquery/dist/jquery.min.js')) });
+  }
+  return assets;
 });

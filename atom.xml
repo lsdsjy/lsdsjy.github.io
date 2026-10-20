@@ -9,7 +9,7 @@
   <link href="https://lsdsjy.github.io/atom.xml" rel="self"/>
   <rights>All rights reserved 2026, lsdsjy</rights>
   <title>lsdsjy's blog</title>
-  <updated>2026-10-20T08:17:54.008Z</updated>
+  <updated>2026-10-20T08:22:33.061Z</updated>
   <entry>
     <author>
       <name>lsdsjy</name>
@@ -21,7 +21,7 @@
       <![CDATA[<h1 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h1><p>In Vue.js we use <code>ref</code>]]>
     </summary>
     <title>Ref Element of Component in Vue.js</title>
-    <updated>2026-10-20T08:17:54.008Z</updated>
+    <updated>2026-10-20T08:22:33.061Z</updated>
   </entry>
   <entry>
     <author>
@@ -34,7 +34,7 @@
       <![CDATA[<p>ES Modules（ESM）是 ES2015 规范中定义的 JavaScript 模块格式，而早在此之前社区就已经探索出了诸如 CommonJS 和 AMD 之类的模块格式，其中影响力最大的就是被 Node.js 采用的 CommonJS。在 ESM 规范出现之前，JS 社区里的三方包几乎全部采用 CJS 模块格式编写，所以当 ESM 出现时，社区必须考虑的一个问题就是 ES Modules 如何与 CommonJS Modules 互操作（interoperate）。</p>]]>
     </summary>
     <title>为什么我们需要 __esModule</title>
-    <updated>2026-10-20T08:17:54.008Z</updated>
+    <updated>2026-10-20T08:22:33.061Z</updated>
   </entry>
   <entry>
     <author>
@@ -47,7 +47,7 @@
       <![CDATA[<p>算起来接触独立博客已经有十年了，这十年来虽然产出不算频繁，但是一直都在关注博客圈子。之前简单回忆过<a href="https://lsdsjy.github.io/restart/">自己写博客的经历</a>，这次想从技术角度分析一下这十年博客系统的发展和背后的逻辑。</p>]]>
     </summary>
     <title>博客系统十年变迁</title>
-    <updated>2026-10-20T08:17:54.008Z</updated>
+    <updated>2026-10-20T08:22:33.061Z</updated>
   </entry>
   <entry>
     <author>
@@ -60,7 +60,7 @@
       <![CDATA[<p>前两周在公司内部做了一次线上的技术分享，分享前做了很多准备工作，包括花了近两个工作日的时间收集资料和制作 Keynote，以及在组内试讲、收集反馈。虽然最后的效果还是不尽如人意，但也还能接受。后来回顾了一下当时的录屏，结合组内同学的反馈以及自己的体验，总结一下这次技术分享中的不足。</p>]]>
     </summary>
     <title>简单回顾一次技术分享</title>
-    <updated>2026-10-20T08:17:54.008Z</updated>
+    <updated>2026-10-20T08:22:33.061Z</updated>
   </entry>
   <entry>
     <author>
@@ -74,7 +74,7 @@
 <h2 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h2><p>目前我每天用 To Do 和公司内部 Jira 管理自己要做的事。</p>]]>
     </summary>
     <title>个人任务管理工作流探索</title>
-    <updated>2026-10-20T08:17:54.008Z</updated>
+    <updated>2026-10-20T08:22:33.061Z</updated>
   </entry>
   <entry>
     <author>
@@ -87,7 +87,7 @@
       <![CDATA[<p>大约是四年前，我写了一篇文章，叫做<a href="https://www.jianshu.com/p/f4df282e945d">《大学的十六分之一》</a>。当时的我第一次离开家乡那座小城，独自来到北京读书；高中时对大学的憧憬和计划一点点地变得模糊，日常生活被懒惰和消极侵占，但又仍然保持一点清醒，所以才能写下那些文字。可惜的是后来再也没有类似的场景。前些日子从学校毕业的时候，看到别人的大学四年总结，我却想不到能写些什么。我不是一个好学生，也没做些有趣的事，甚至没能成为一个合格的人。</p>]]>
     </summary>
     <title>写在人生的一个小小节点</title>
-    <updated>2026-10-20T08:17:54.008Z</updated>
+    <updated>2026-10-20T08:22:33.061Z</updated>
   </entry>
   <entry>
     <author>
@@ -100,6 +100,6 @@
       <![CDATA[<p>我在中学阶段曾两度写文章（也许用 post 更为合适）阐述“博客的意义”，却没想到会在大学时被自己遗忘殆尽。</p>]]>
     </summary>
     <title>重新开始记录</title>
-    <updated>2026-10-20T08:17:54.008Z</updated>
+    <updated>2026-10-20T08:22:33.061Z</updated>
   </entry>
 </feed>

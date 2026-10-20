@@ -4,48 +4,6 @@ import SwupPreloadPlugin from '@swup/preload-plugin';
 import SwupScrollPlugin from '@swup/scroll-plugin';
 import SwupA11yPlugin from '@swup/a11y-plugin';
 
-let commentsLoading;
-
-function loadComments() {
-  if (window.CUSDIS) return Promise.resolve();
-  if (!commentsLoading) {
-    // Mount explicitly after loading, since the reader may navigate meanwhile.
-    window.CUSDIS_PREVENT_INITIAL_RENDER = true;
-    commentsLoading = new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src = 'https://cusdis.com/js/cusdis.es.js';
-      script.async = true;
-      script.onload = resolve;
-      script.onerror = () => {
-        script.remove();
-        commentsLoading = undefined;
-        reject(new Error('Unable to load comments'));
-      };
-      document.body.append(script);
-    });
-  }
-  return commentsLoading;
-}
-
-async function initComments() {
-  const target = document.getElementById('cusdis_thread');
-  if (!target) return;
-  try {
-    await loadComments();
-    if (target.isConnected) window.CUSDIS.renderTo(target);
-  } catch {
-    if (!target.isConnected) return;
-    const retry = document.createElement('button');
-    retry.type = 'button';
-    retry.textContent = '评论加载失败，点击重试';
-    retry.onclick = () => {
-      target.replaceChildren();
-      initComments();
-    };
-    target.replaceChildren(retry);
-  }
-}
-
 function ignoreVisit(url, { el } = {}) {
   if (el?.closest('[data-no-swup], .article-image, [download]')) return true;
   const target = new URL(url, window.location.href);
@@ -112,7 +70,7 @@ function updateNavigation() {
 
 swup.hooks.on('content:replace', () => {
   initArticle();
-  initComments();
+
   updateNavigation();
 });
 
@@ -123,6 +81,5 @@ swup.hooks.on('page:view', () => {
   }
 });
 
-initComments();
 
 initArticle();

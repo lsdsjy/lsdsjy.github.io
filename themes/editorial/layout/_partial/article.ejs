@@ -14,7 +14,4 @@
     <div><% if (page.next) { %><a href="<%= url_for(page.next.path) %>"><span>下一篇 →</span><%= page.next.title %></a><% } %></div>
   </nav>
   <% } %>
-  <% if (page.comments && theme.cusdis_app_id) { %>
-  <section class="comments" aria-label="评论"><h2>评论</h2><div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="<%= theme.cusdis_app_id %>" data-page-id="<%= page.path %>" data-page-url="<%= page.permalink %>" data-page-title="<%= page.title %>"></div></section>
-  <% } %>
 </div>

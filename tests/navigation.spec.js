@@ -1,23 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
-// The live service is external: verify our SDK lifecycle deterministically.
-const commentsSDK = `
-  window.CUSDIS = {
-    renderTo(target) {
-      const frame = document.createElement('iframe');
-      frame.dataset.pageId = target.dataset.pageId;
-      target.replaceChildren(frame);
-    }
-  };
-`;
-
 test.beforeEach(async ({ page }) => {
-  await page.route('https://**/*', route => {
-    if (route.request().url() === 'https://cusdis.com/js/cusdis.es.js') {
-      return route.fulfill({ contentType: 'application/javascript', body: commentsSDK });
-    }
-    return route.abort();
-  });
+  await page.route('https://**/*', route => route.abort());
 });
 
 async function openHome(page) {
@@ -26,20 +10,25 @@ async function openHome(page) {
   await page.evaluate(() => { window.documentMarker = 'original'; });
 }
 
-test('switches pages without reloading, updates head and comments, preserves shell', async ({ page }) => {
+test('switches pages without reloading, updates head, preserves shell', async ({ page }) => {
   const errors = [];
+  const commentRequests = [];
+  page.on('request', request => {
+    if (request.url().includes('cusdis.com')) commentRequests.push(request.url());
+  });
   page.on('pageerror', error => errors.push(error.message));
   await openHome(page);
   await page.evaluate(() => { document.querySelector('#header').dataset.persistent = 'yes'; });
   await page.locator('a.article-title[href="/ref-element-vue/"]').click();
   await expect(page).toHaveURL(/\/ref-element-vue\/$/);
-  await expect(page.locator('#cusdis_thread iframe')).toHaveAttribute('data-page-id', 'ref-element-vue/');
+  await expect(page.locator('h1.article-title')).toHaveText('Ref Element of Component in Vue.js');
   await expect(page).toHaveTitle(/Ref Element of Component/);
   await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href', 'https://lsdsjy.github.io/ref-element-vue/');
   await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', 'https://lsdsjy.github.io/ref-element-vue/index.html');
   await page.locator('a[href="/double-underscore-esmodule/"]').first().click();
-  await expect(page.locator('#cusdis_thread iframe')).toHaveAttribute('data-page-id', 'double-underscore-esmodule/');
-  await expect(page.locator('#cusdis_thread iframe')).toHaveCount(1);
+  await expect(page.locator('h1.article-title')).toHaveText('为什么我们需要 __esModule');
+  await expect(page.locator('#cusdis_thread, .comments')).toHaveCount(0);
+  expect(commentRequests).toEqual([]);
   expect(await page.evaluate(() => window.documentMarker)).toBe('original');
   await expect(page.locator('#header')).toHaveAttribute('data-persistent', 'yes');
   expect(errors).toEqual([]);
@@ -56,7 +45,7 @@ test('prefetches hovered links and consumes the cached HTML', async ({ page }) =
   await link.hover();
   await fetched;
   await link.click();
-  await expect(page.locator('#cusdis_thread')).toHaveAttribute('data-page-id', 'blogging-platforms/');
+  await expect(page.locator('h1.article-title')).toHaveText('博客系统十年变迁');
   expect(requests).toBe(1);
 });
 
@@ -76,7 +65,7 @@ test('restores scroll on back and forward, including excerpt anchors', async ({ 
   await expect.poll(() => page.evaluate(() => scrollY)).toBeCloseTo(homeScroll, -1);
   await page.goForward();
   await expect(page).toHaveURL(/\/task-management\/#more$/);
-  await expect(page.locator('#cusdis_thread')).toHaveAttribute('data-page-id', 'task-management/');
+  await expect(page.locator('h1.article-title')).toHaveText('个人任务管理工作流探索');
   expect(await page.evaluate(() => window.documentMarker)).toBe('original');
 });
 
@@ -93,7 +82,7 @@ test('initializes images once when revisiting, and handles archive navigation', 
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://lsdsjy.github.io/archives/');
   await expect(page.locator('#cusdis_thread')).toHaveCount(0);
   await page.goBack();
-  await expect(page.locator('#cusdis_thread')).toHaveAttribute('data-page-id', 'task-management/');
+  await expect(page.locator('h1.article-title')).toHaveText('个人任务管理工作流探索');
   await expect(page.locator('#main a.article-image')).toHaveCount(wrappers);
   await expect(page.locator('#main .caption')).toHaveCount(captions);
 });
@@ -125,42 +114,10 @@ test('direct URLs retain complete content without JavaScript', async ({ browser 
   await context.close();
 });
 
-test('late comment SDK mounts the current article, with only one script request', async ({ page }) => {
-  let release;
-  let requests = 0;
-  const ready = new Promise(resolve => { release = resolve; });
-  await page.route('https://cusdis.com/js/cusdis.es.js', async route => {
-    requests++;
-    await ready;
-    await route.fulfill({ contentType: 'application/javascript', body: commentsSDK });
-  });
-  await openHome(page);
-  await page.locator('a.article-title[href="/ref-element-vue/"]').click();
-  await expect(page.locator('#cusdis_thread')).toHaveAttribute('data-page-id', 'ref-element-vue/');
-  await page.locator('a[href="/double-underscore-esmodule/"]').first().click();
-  await expect(page.locator('#cusdis_thread')).toHaveAttribute('data-page-id', 'double-underscore-esmodule/');
-  release();
-  await expect(page.locator('#cusdis_thread iframe')).toHaveAttribute('data-page-id', 'double-underscore-esmodule/');
-  expect(requests).toBe(1);
-});
-
-test('failed comments can retry without interrupting navigation', async ({ page }) => {
-  let requests = 0;
-  await page.route('https://cusdis.com/js/cusdis.es.js', route => {
-    if (++requests === 1) return route.abort();
-    return route.fulfill({ contentType: 'application/javascript', body: commentsSDK });
-  });
-  await openHome(page);
-  await page.locator('a.article-title[href="/ref-element-vue/"]').click();
-  await page.getByRole('button', { name: '评论加载失败，点击重试' }).click();
-  await expect(page.locator('#cusdis_thread iframe')).toHaveAttribute('data-page-id', 'ref-element-vue/');
-  expect(await page.evaluate(() => window.documentMarker)).toBe('original');
-});
-
 test('same-page anchors work and admin links use normal navigation', async ({ page }) => {
   await openHome(page);
   await page.locator('a.article-title[href="/ref-element-vue/"]').click();
-  await expect(page.locator('#cusdis_thread')).toHaveAttribute('data-page-id', 'ref-element-vue/');
+  await expect(page.locator('h1.article-title')).toHaveText('Ref Element of Component in Vue.js');
   await page.evaluate(() => {
     const link = document.createElement('a');
     link.href = '#The-Solution';
@@ -188,7 +145,7 @@ test('history scroll restoration also works with reduced motion', async ({ page 
   await page.locator('a.article-title[href="/blogging-platforms/"]').focus();
   const position = await page.evaluate(() => scrollY);
   await page.keyboard.press('Enter');
-  await expect(page.locator('#cusdis_thread')).toHaveAttribute('data-page-id', 'blogging-platforms/');
+  await expect(page.locator('h1.article-title')).toHaveText('博客系统十年变迁');
   await page.goBack();
   await expect(page).toHaveURL('http://127.0.0.1:4173/');
   await expect.poll(() => page.evaluate(() => scrollY)).toBeCloseTo(position, -1);

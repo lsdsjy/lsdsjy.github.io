@@ -3,7 +3,7 @@
   <article>
     <header class="articlehead">
       <h1 class="article-title"><%= page.title %></h1>
-      <div class="meta"><time datetime="<%= date_xml(page.date) %>"><%= date(page.date, 'YYYY 年 M 月 D 日') %></time><span><%= page.author || config.author %></span></div>
+      <div class="meta"><time datetime="<%= date_xml(page.date) %>"><%= date(page.date, 'YYYY 年 M 月 D 日') %></time></div>
     </header>
     <div class="article-entry prose"><%- page.content %></div>
     <% if (page.tags && page.tags.length) { %><div class="tags"><%- list_tags(page.tags, {show_count: false, style: 'none', separator: ' / '}) %></div><% } %>

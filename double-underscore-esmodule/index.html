@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="/favicon.png"/>
@@ -16,7 +16,7 @@
 <meta property="og:description" content="ES Modules（ESM）是 ES2015 规范中定义的 JavaScript 模块格式，而早在此之前社区就已经探索出了诸如 CommonJS 和 AMD 之类的模块格式，其中影响力最大的就是被 Node.js 采用的 CommonJS。在 ESM 规范出现之前，JS 社区里的三方包几乎全部采用 CJS 模块格式编写，所以当 ESM 出现时，社区必须考虑的一个问题就是 ES Modules 如">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-05T15:22:11.000Z">
-<meta property="article:modified_time" content="2022-11-05T07:55:12.630Z">
+<meta property="article:modified_time" content="2026-10-20T08:10:02.594Z">
 <meta property="article:author" content="lsdsjy">
 <meta name="twitter:card" content="summary">
   
@@ -26,114 +26,75 @@
     <link rel="icon" href="/favicon.png">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
 <link rel="stylesheet" href="/css/style.css">
 
-  
-    <script async src="https://cusdis.com/js/cusdis.es.js"></script>
-  
-<meta name="generator" content="Hexo 5.2.0"></head>
+  <link rel="canonical" href="https://lsdsjy.github.io/double-underscore-esmodule/">
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">lsdsjy&#39;s blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">首页</a>
-        
-          <a class="main-nav-link" href="/archives">归档</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="订阅"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://lsdsjy.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-double-underscore-esmodule" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/double-underscore-esmodule/" class="article-date">
-  <time datetime="2021-09-05T15:22:11.000Z" itemprop="datePublished">2021-09-05</time>
-</a>
+<a class="skip-link" href="#main">跳到正文</a>
+<div id="container" class="shell">
+  <header id="header" class="masthead">
+    <a class="brand" href="/">lsdsjy&#39;s blog</a>
+    <nav id="main-nav" class="nav" aria-label="主导航">
     
-  </div>
-  <div class="article-inner">
+      <a href="/">文章</a>
     
+      <a href="/archives">归档</a>
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      为什么我们需要 __esModule
-    </h1>
-  
-
-      </header>
+      <a href="https://github.com/lsdsjy" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>ES Modules（ESM）是 ES2015 规范中定义的 JavaScript 模块格式，而早在此之前社区就已经探索出了诸如 CommonJS 和 AMD 之类的模块格式，其中影响力最大的就是被 Node.js 采用的 CommonJS。在 ESM 规范出现之前，JS 社区里的三方包几乎全部采用 CJS 模块格式编写，所以当 ESM 出现时，社区必须考虑的一个问题就是 ES Modules 如何与 CommonJS Modules 互操作（interoperate）。</p>
-<a id="more"></a>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1"><div class="articlewrap">
+  <a class="back" href="/">← 所有文章</a>
+  <article>
+    <header class="articlehead">
+      <h1 class="article-title">为什么我们需要 __esModule</h1>
+      <div class="meta"><time datetime="2021-09-05T15:22:11.000Z">2021 年 9 月 5 日</time></div>
+    </header>
+    <div class="article-entry prose"><p>ES Modules（ESM）是 ES2015 规范中定义的 JavaScript 模块格式，而早在此之前社区就已经探索出了诸如 CommonJS 和 AMD 之类的模块格式，其中影响力最大的就是被 Node.js 采用的 CommonJS。在 ESM 规范出现之前，JS 社区里的三方包几乎全部采用 CJS 模块格式编写，所以当 ESM 出现时，社区必须考虑的一个问题就是 ES Modules 如何与 CommonJS Modules 互操作（interoperate）。</p>
+<span id="more"></span>
 
 <h2 id="ESM-如何使用-CJS-模块"><a href="#ESM-如何使用-CJS-模块" class="headerlink" title="ESM 如何使用 CJS 模块"></a>ESM 如何使用 CJS 模块</h2><p>一个比较直觉的想法是把 CJS 中的 <code>const a = require(&#39;a&#39;)</code> 和 ESM 的 namespace import 即 <code>import * as a from &#39;a&#39;</code> 对应起来，因为这两者表达的语义都是“引用某模块导出的所有东西”。</p>
 <p>但是我们知道 CommonJS 中模块导出的可以是任意数据，包括对象、函数和原生类型（数字、字符串等），而 ESM 的 namespace import 得到的 namespace object 只能是一个普通的对象，这就造成了失配，比如对于 jquery 库：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> $ = <span class="built_in">require</span>(<span class="string">&#x27;jquery&#x27;</span>)</span><br><span class="line">$(<span class="string">&#x27;body&#x27;</span>) <span class="comment">// OK</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> $ <span class="keyword">from</span> <span class="string">&#x27;jquery&#x27;</span></span><br><span class="line">$(<span class="string">&#x27;body&#x27;</span>) <span class="comment">// Error, $ is not a function</span></span><br></pre></td></tr></table></figure>
 
 <p>所以我们只能将 CJS 模块的 <code>exports</code> 对象映射到 ESM 的 <code>default</code> 即默认导出，如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">import</span> a <span class="keyword">from</span> <span class="string">&#x27;./a.js&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">import</span> a <span class="keyword">from</span> <span class="string">&#x27;./a.js&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p>但是这也就导致named exports失去了用处。比如我们只能这么写：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">&#x27;fs&#x27;</span></span><br><span class="line">fs.default.readFile()</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">&#x27;fs&#x27;</span></span><br><span class="line">fs.<span class="property">default</span>.<span class="title function_">readFile</span>()</span><br></pre></td></tr></table></figure>
 
 <p>对开发者而言，更理想的写法还是：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> fs <span class="keyword">from</span> <span class="string">&#x27;fs&#x27;</span></span><br><span class="line">fs.readFile()</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> fs <span class="keyword">from</span> <span class="string">&#x27;fs&#x27;</span></span><br><span class="line">fs.<span class="title function_">readFile</span>()</span><br></pre></td></tr></table></figure>
 
 <p>为了在保证语义正确的前提下允许这种写法，各个工具都会把 CJS 中 <code>exports</code> 对象的每个属性对应为一个 ESM named export，比如 tslib 中的 <code>__importStar</code>：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> __importStar = (<span class="built_in">this</span> &amp;&amp; <span class="built_in">this</span>.__importStar) || <span class="function"><span class="keyword">function</span> (<span class="params">mod</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (mod &amp;&amp; mod.__esModule) <span class="keyword">return</span> mod;</span><br><span class="line">    <span class="keyword">var</span> result = &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span> (mod != <span class="literal">null</span>) <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> mod) <span class="keyword">if</span> (k !== <span class="string">&quot;default&quot;</span> &amp;&amp; <span class="built_in">Object</span>.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);</span><br><span class="line">    __setModuleDefault(result, mod);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> __importStar = (<span class="variable language_">this</span> &amp;&amp; <span class="variable language_">this</span>.<span class="property">__importStar</span>) || <span class="keyword">function</span> (<span class="params">mod</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (mod &amp;&amp; mod.<span class="property">__esModule</span>) <span class="keyword">return</span> mod;</span><br><span class="line">    <span class="keyword">var</span> result = &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span> (mod != <span class="literal">null</span>) <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> mod) <span class="keyword">if</span> (k !== <span class="string">&quot;default&quot;</span> &amp;&amp; <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">hasOwnProperty</span>.<span class="title function_">call</span>(mod, k)) <span class="title function_">__createBinding</span>(result, mod, k);</span><br><span class="line">    <span class="title function_">__setModuleDefault</span>(result, mod);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>Node.js 也会通过静态分析的方式创建一些 named export（<a target="_blank" rel="noopener" href="https://nodejs.org/api/esm.html#esm_import_statements">https://nodejs.org/api/esm.html#esm_import_statements</a>）。</p>
 <p>注意一些工具比如 Babel、TypeScript 在早期曾经使用了如前所述的错误的映射关系，导致后续需要引入<a target="_blank" rel="noopener" href="https://www.typescriptlang.org/tsconfig#esModuleInterop">专门的编译器开关</a>来矫正这种行为。</p>
 <h2 id="CJS-如何使用-ESM-模块"><a href="#CJS-如何使用-ESM-模块" class="headerlink" title="CJS 如何使用 ESM 模块"></a>CJS 如何使用 ESM 模块</h2><p>ESM 模块有默认导出（default export）和具名导出（named export），而 CJS 只有一个 <code>exports</code> 对象，所以自然地需要把默认导出和具名导出合并为一个对象（namespace）并映射到 <code>exports</code>：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> v = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">&#x27;./a.js&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(a.default, a.v) <span class="comment">// 1 2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> v = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">&#x27;./a.js&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">default</span>, a.<span class="property">v</span>) <span class="comment">// 1 2</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="转译x2"><a href="#转译x2" class="headerlink" title="转译x2"></a>转译x2</h2><p>考虑如下模块：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">import</span> a <span class="keyword">from</span> <span class="string">&#x27;./a.js&#x27;</span></span><br><span class="line">a + <span class="number">1</span> <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
 
 <p>按照前文定下的规则，这两个 ESM 会被转译为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123; <span class="attr">default</span>: <span class="number">1</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">&#x27;./a.js&#x27;</span>)</span><br><span class="line">a + <span class="number">1</span> <span class="comment">// Error</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123; <span class="attr">default</span>: <span class="number">1</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// b.js</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">&#x27;./a.js&#x27;</span>)</span><br><span class="line">a + <span class="number">1</span> <span class="comment">// Error</span></span><br></pre></td></tr></table></figure>
 
 <p>意外地，我们发现根据前面定下的映射规则进行转译会导致出错。对于 b.js 而言，如果它依赖的 a.js 是个 CJS 模块就没有任何问题：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// transpiled b.js</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">&#x27;./a.js&#x27;</span>)</span><br><span class="line">a + <span class="number">1</span> <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// transpiled b.js</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">&#x27;./a.js&#x27;</span>)</span><br><span class="line">a + <span class="number">1</span> <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
 
 <p>所以，之前我们制定的互操作规则考虑了 ESM→CJS 和 CJS→ESM 的场景（箭头表示依赖），但没法覆盖(ESM to CJS)→(ESM to CJS) 的场景，因为本质上这两种模块格式没法完美地对应。</p>
 <p>针对这种转译后再引用的场景，社区提出了以 <code>__esModule</code> 属性作为标记的方案，即转译工具需要在将 ESM 转译为 CJS 时为模块导出对象设置 <code>__esModule</code> 属性：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// transpiled a.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123; <span class="attr">default</span>: <span class="number">1</span> &#125;</span><br><span class="line"><span class="built_in">module</span>.exports.__esModule = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// transpiled a.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123; <span class="attr">default</span>: <span class="number">1</span> &#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">__esModule</span> = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <p>所以如果一个 CJS 模块的导出对象的 <code>__esModule</code> 属性为 <code>true</code>，说明该模块是由 ESM 转译而来；而此时如果消费者也是 ESM，则 <code>import a from &#39;./a.js&#39;</code> 这样的默认导入会被转译为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">&#x27;./a.js&#x27;</span>).default</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">&#x27;./a.js&#x27;</span>).<span class="property">default</span></span><br></pre></td></tr></table></figure>
 
 <p>实际上这一步判断不是在转译时进行的，因为转译工具在转译时并不一定知道被依赖模块的内容。所以生成的代码其实类似这样：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="built_in">require</span>(<span class="string">&#x27;./a.js&#x27;</span>)</span><br><span class="line"><span class="keyword">if</span> (!a|| !a.__esModule)</span><br><span class="line">  a = &#123; <span class="attr">default</span>: es6Module &#125;</span><br><span class="line">a = a.default</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="built_in">require</span>(<span class="string">&#x27;./a.js&#x27;</span>)</span><br><span class="line"><span class="keyword">if</span> (!a|| !a.<span class="property">__esModule</span>)</span><br><span class="line">  a = &#123; <span class="attr">default</span>: es6Module &#125;</span><br><span class="line">a = a.<span class="property">default</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇文章虽然叫“为什么我们需要 __esModule”，但其实花了大量的篇幅阐述 ESM 和 CJS 之间的 interop，因为我在查资料的过程中发现这是讲清楚 <code>__esModule</code> 的前提。希望这篇文章讲得能比目前在 Google 上能搜到的同类文章更清晰一些。</p>
 <h2 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h2><p><a target="_blank" rel="noopener" href="https://github.com/esnext/es6-module-transpiler/issues/85">https://github.com/esnext/es6-module-transpiler/issues/85</a></p>
@@ -141,137 +102,25 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/google/traceur-compiler/pull/785">https://github.com/google/traceur-compiler/pull/785</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/babel/babel/issues/95">https://github.com/babel/babel/issues/95</a></p>
 <p><a target="_blank" rel="noopener" href="https://nodejs.org/api/esm.html#esm_interoperability_with_commonjs">https://nodejs.org/api/esm.html#esm_interoperability_with_commonjs</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://lsdsjy.github.io/double-underscore-esmodule/" data-id="cla3mturw0001oqou4npt30m0" class="article-share-link">Share</a>-->
-      
-        <h2 style="font-size: 1.5rem">评论区</h2>
-        <div
-          id="cusdis_thread"
-          style="margin-top: 2em;"
-          data-host="https://cusdis.com"
-          data-app-id="9ada4764-e2de-479b-9328-abca94434933"
-          data-page-id="double-underscore-esmodule/"
-          data-page-url="https://lsdsjy.github.io/double-underscore-esmodule/"
-          data-page-title="为什么我们需要 __esModule"
-        ></div>
-        <!-- <a href="https://lsdsjy.github.io/double-underscore-esmodule/#disqus_thread" class="article-comment-link">留言</a> -->
-      
-      
-    </footer>
-  </div>
-  
+</div>
     
-<nav id="article-nav">
+  </article>
   
-    <a href="/ref-element-vue/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Ref Element of Component in Vue.js
-        
-      </div>
-    </a>
+  <nav id="article-nav" class="articleend" aria-label="相邻文章">
+    <div><a href="/ref-element-vue/"><span>← 上一篇</span>Ref Element of Component in Vue.js</a></div>
+    <div><a href="/blogging-platforms/"><span>下一篇 →</span>博客系统十年变迁</a></div>
+  </nav>
   
   
-    <a href="/blogging-platforms/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">博客系统十年变迁</div>
-    </a>
+  <section class="comments" aria-label="评论"><h2>评论</h2><div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="9ada4764-e2de-479b-9328-abca94434933" data-page-id="double-underscore-esmodule/" data-page-url="https://lsdsjy.github.io/double-underscore-esmodule/" data-page-title="为什么我们需要 __esModule"></div></section>
   
-</nav>
+</div>
 
-  
-</article>
+</main>
+  <footer class="foot"><span>© 2026 lsdsjy</span><a href="/atom.xml" data-no-swup>RSS</a></footer>
+</div>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+<script src="/js/navigation.js" defer></script>
 
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/ref-element-vue/">Ref Element of Component in Vue.js</a>
-          </li>
-        
-          <li>
-            <a href="/double-underscore-esmodule/">为什么我们需要 __esModule</a>
-          </li>
-        
-          <li>
-            <a href="/blogging-platforms/">博客系统十年变迁</a>
-          </li>
-        
-          <li>
-            <a href="/tech-talk-review/">简单回顾一次技术分享</a>
-          </li>
-        
-          <li>
-            <a href="/task-management/">个人任务管理工作流探索</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 lsdsjy<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">首页</a>
-  
-    <a href="/archives" class="mobile-nav-link">归档</a>
-  
-</nav>
-    
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@2/dist/jquery.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
 </body>
 </html>

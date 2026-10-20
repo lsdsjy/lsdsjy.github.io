@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="/favicon.png"/>
@@ -16,7 +16,7 @@
 <meta property="og:description" content="The ProblemIn Vue.js we use ref to get the real DOM element of a node, like: 12345const dom &#x3D; ref()&#x2F;&#x2F; Output: a &lt;div&gt; elementwatch(dom, (v) &#x3D;&gt; console.log(v))&lt;div ref&#x3D;&quot;dom&quot;&gt;&amp;l">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-05T07:10:03.000Z">
-<meta property="article:modified_time" content="2022-11-05T07:55:12.630Z">
+<meta property="article:modified_time" content="2026-10-20T08:10:02.594Z">
 <meta property="article:author" content="lsdsjy">
 <meta name="twitter:card" content="summary">
   
@@ -26,226 +26,84 @@
     <link rel="icon" href="/favicon.png">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
 <link rel="stylesheet" href="/css/style.css">
 
-  
-    <script async src="https://cusdis.com/js/cusdis.es.js"></script>
-  
-<meta name="generator" content="Hexo 5.2.0"></head>
+  <link rel="canonical" href="https://lsdsjy.github.io/ref-element-vue/">
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">lsdsjy&#39;s blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">首页</a>
-        
-          <a class="main-nav-link" href="/archives">归档</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="订阅"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://lsdsjy.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-ref-element-vue" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/ref-element-vue/" class="article-date">
-  <time datetime="2022-11-05T07:10:03.000Z" itemprop="datePublished">2022-11-05</time>
-</a>
+<a class="skip-link" href="#main">跳到正文</a>
+<div id="container" class="shell">
+  <header id="header" class="masthead">
+    <a class="brand" href="/">lsdsjy&#39;s blog</a>
+    <nav id="main-nav" class="nav" aria-label="主导航">
     
-  </div>
-  <div class="article-inner">
+      <a href="/">文章</a>
     
+      <a href="/archives">归档</a>
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Ref Element of Component in Vue.js
-    </h1>
-  
-
-      </header>
+      <a href="https://github.com/lsdsjy" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h1><p>In Vue.js we use <code>ref</code> to get the real DOM element of a node, like:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dom = ref()</span><br><span class="line"><span class="comment">// Output: a &lt;div&gt; element</span></span><br><span class="line">watch(dom, <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(v))</span><br><span class="line"></span><br><span class="line">&lt;div ref=<span class="string">&quot;dom&quot;</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1"><div class="articlewrap">
+  <a class="back" href="/">← 所有文章</a>
+  <article>
+    <header class="articlehead">
+      <h1 class="article-title">Ref Element of Component in Vue.js</h1>
+      <div class="meta"><time datetime="2022-11-05T07:10:03.000Z">2022 年 11 月 5 日</time></div>
+    </header>
+    <div class="article-entry prose"><h1 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h1><p>In Vue.js we use <code>ref</code> to get the real DOM element of a node, like:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dom = <span class="title function_">ref</span>()</span><br><span class="line"><span class="comment">// Output: a &lt;div&gt; element</span></span><br><span class="line"><span class="title function_">watch</span>(dom, <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(v))</span><br><span class="line"></span><br><span class="line">&lt;div ref=<span class="string">&quot;dom&quot;</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
 <p>However when the <code>ref</code>ed node is a custom component, <a target="_blank" rel="noopener" href="https://vuejs.org/guide/essentials/template-refs.html#ref-on-component">we’ll get the component instance instead</a>:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dom = ref()</span><br><span class="line"><span class="comment">// Output: a component instance</span></span><br><span class="line">watch(dom, <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(v))</span><br><span class="line"></span><br><span class="line">&lt;Comp ref=<span class="string">&quot;dom&quot;</span>&gt;&lt;/Comp&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dom = <span class="title function_">ref</span>()</span><br><span class="line"><span class="comment">// Output: a component instance</span></span><br><span class="line"><span class="title function_">watch</span>(dom, <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(v))</span><br><span class="line"></span><br><span class="line">&lt;<span class="title class_">Comp</span> ref=<span class="string">&quot;dom&quot;</span>&gt;&lt;/<span class="title class_">Comp</span>&gt;</span><br></pre></td></tr></table></figure>
 
 <p>And we can use the <a target="_blank" rel="noopener" href="https://vuejs.org/api/component-instance.html#el"><code>$el</code></a> property of the instance to get the underlying DOM element:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dom = ref()</span><br><span class="line"><span class="comment">// Output: the root element of the component</span></span><br><span class="line">watch(dom, <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(v.$el))</span><br><span class="line"></span><br><span class="line">&lt;Comp ref=<span class="string">&quot;dom&quot;</span>&gt;&lt;/Comp&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dom = <span class="title function_">ref</span>()</span><br><span class="line"><span class="comment">// Output: the root element of the component</span></span><br><span class="line"><span class="title function_">watch</span>(dom, <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(v.<span class="property">$el</span>))</span><br><span class="line"></span><br><span class="line">&lt;<span class="title class_">Comp</span> ref=<span class="string">&quot;dom&quot;</span>&gt;&lt;/<span class="title class_">Comp</span>&gt;</span><br></pre></td></tr></table></figure>
 
 <p>So far so good, unless your component has a <code>v-if</code> directive on the root:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Comp.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div v-<span class="keyword">if</span>=<span class="string">&quot;flag&quot;</span>&gt;...&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Comp.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">	<span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">&quot;flag&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
 
 <p>If <code>flag</code> is not truthy when the component is mounted, we will get a comment node by accessing the <code>$el</code> property:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output: a comment node like &lt;!-- --&gt;</span></span><br><span class="line">watch(dom, <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(v.$el))</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output: a comment node like &lt;!-- --&gt;</span></span><br><span class="line"><span class="title function_">watch</span>(dom, <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(v.<span class="property">$el</span>))</span><br></pre></td></tr></table></figure>
 
 <p>Of course when <code>flag</code> turns truthy the <code>$el</code> property will be the rendered <code>&lt;div&gt;</code> element. It’s all reasonable, except that <strong>the <code>$el</code> property of a component instance is not reactive</strong> and it won’t trigger any <code>watch</code> or <code>computed</code> expressions!</p>
 <p>So if you want to attach event listeners to the root element of a component (I know it sounds like bad-smell code but sometimes you have to do that) using pre-defined composables like <a target="_blank" rel="noopener" href="https://vueuse.org/core/useeventlistener/#useeventlistener"><code>useEventListener</code></a>, it may not work because it uses <code>watch</code> under the hood. Basically we have no idea on the parent side when will the root element (with a <code>v-if</code>) of a child component be rendered, unless you manually <code>watch</code> the flag and emit a event from the child component.</p>
 <h1 id="The-Solution"><a href="#The-Solution" class="headerlink" title="The Solution"></a>The Solution</h1><p>The solution is using <a target="_blank" rel="noopener" href="https://vuejs.org/guide/reusability/custom-directives.html#directive-hooks">custom directives</a>. As mentioned in the doc, custom directive hooks will be passed the element the directive is bound to as an argument. And in fact, the directive hooks will only be triggered when there is a real HTML element, i.e. when the root element is actually rendered. So we can write a custom directive like this:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// binding.value should be a ref</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> vRefElement = <span class="function">(<span class="params">el, binding</span>) =&gt;</span> &#123;</span><br><span class="line">  binding.value.value = el;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// binding.value should be a ref</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">vRefElement</span> = (<span class="params">el, binding</span>) =&gt; &#123;</span><br><span class="line">  binding.<span class="property">value</span>.<span class="property">value</span> = el;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>And use it like:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dom = ref()</span><br><span class="line">&lt;Comp v-ref-element=<span class="string">&quot;dom&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dom = <span class="title function_">ref</span>()</span><br><span class="line">&lt;<span class="title class_">Comp</span> v-ref-element=<span class="string">&quot;dom&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
 
 <p>Oops! An error:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught (in promise) TypeError: Cannot set properties of undefined (setting &#39;value&#39;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught (in promise) TypeError: Cannot set properties of undefined (setting &#x27;value&#x27;)</span><br></pre></td></tr></table></figure>
 
 <p>The problem here is that <a target="_blank" rel="noopener" href="https://vuejs.org/guide/essentials/reactivity-fundamentals.html#ref-unwrapping-in-templates">Vue unwraps refs in template</a> so the directive receives not the <code>dom</code> ref itself but its inside value, which is <code>undefined</code>! So to avoid this kind of unwrapping, we can wrap it in a plain object:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dom = ref()</span><br><span class="line"><span class="keyword">const</span> domWrap = &#123; dom &#125;</span><br><span class="line"><span class="comment">// Output(after flag becomes truthy): &lt;div&gt;</span></span><br><span class="line">watch(dom, <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="built_in">console</span>.log(v))</span><br><span class="line">&lt;Comp v-ref-element=<span class="string">&quot;domWrap.dom&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dom = <span class="title function_">ref</span>()</span><br><span class="line"><span class="keyword">const</span> domWrap = &#123; dom &#125;</span><br><span class="line"><span class="comment">// Output(after flag becomes truthy): &lt;div&gt;</span></span><br><span class="line"><span class="title function_">watch</span>(dom, <span class="function">(<span class="params">v</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(v))</span><br><span class="line">&lt;<span class="title class_">Comp</span> v-ref-element=<span class="string">&quot;domWrap.dom&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
 
 <p>Now it works! The <code>dom</code> ref will be filled with a <code>&lt;div&gt;</code> when <code>flag</code> becomes truthy and will trigger all relevant reactive computations.</p>
 <p>See a demo here:</p>
 <p><a target="_blank" rel="noopener" href="https://stackblitz.com/edit/vitejs-vite-3sqrri?file=src/App.vue">https://stackblitz.com/edit/vitejs-vite-3sqrri?file=src/App.vue</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="https://lsdsjy.github.io/ref-element-vue/" data-id="cla3mturz0003oqou6fm9afnv" class="article-share-link">Share</a>-->
-      
-        <h2 style="font-size: 1.5rem">评论区</h2>
-        <div
-          id="cusdis_thread"
-          style="margin-top: 2em;"
-          data-host="https://cusdis.com"
-          data-app-id="9ada4764-e2de-479b-9328-abca94434933"
-          data-page-id="ref-element-vue/"
-          data-page-url="https://lsdsjy.github.io/ref-element-vue/"
-          data-page-title="Ref Element of Component in Vue.js"
-        ></div>
-        <!-- <a href="https://lsdsjy.github.io/ref-element-vue/#disqus_thread" class="article-comment-link">留言</a> -->
-      
-      
-    </footer>
-  </div>
-  
+</div>
     
-<nav id="article-nav">
+  </article>
+  
+  <nav id="article-nav" class="articleend" aria-label="相邻文章">
+    <div></div>
+    <div><a href="/double-underscore-esmodule/"><span>下一篇 →</span>为什么我们需要 __esModule</a></div>
+  </nav>
   
   
-    <a href="/double-underscore-esmodule/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">为什么我们需要 __esModule</div>
-    </a>
+  <section class="comments" aria-label="评论"><h2>评论</h2><div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="9ada4764-e2de-479b-9328-abca94434933" data-page-id="ref-element-vue/" data-page-url="https://lsdsjy.github.io/ref-element-vue/" data-page-title="Ref Element of Component in Vue.js"></div></section>
   
-</nav>
+</div>
 
-  
-</article>
+</main>
+  <footer class="foot"><span>© 2026 lsdsjy</span><a href="/atom.xml" data-no-swup>RSS</a></footer>
+</div>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+<script src="/js/navigation.js" defer></script>
 
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/ref-element-vue/">Ref Element of Component in Vue.js</a>
-          </li>
-        
-          <li>
-            <a href="/double-underscore-esmodule/">为什么我们需要 __esModule</a>
-          </li>
-        
-          <li>
-            <a href="/blogging-platforms/">博客系统十年变迁</a>
-          </li>
-        
-          <li>
-            <a href="/tech-talk-review/">简单回顾一次技术分享</a>
-          </li>
-        
-          <li>
-            <a href="/task-management/">个人任务管理工作流探索</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 lsdsjy<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">首页</a>
-  
-    <a href="/archives" class="mobile-nav-link">归档</a>
-  
-</nav>
-    
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@2/dist/jquery.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
 </body>
 </html>
